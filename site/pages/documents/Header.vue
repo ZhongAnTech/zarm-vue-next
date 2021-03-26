@@ -16,7 +16,7 @@
         <ul>
           <li><a href="#/documents/quick-start" class="active">组件</a></li>
           <li><a href="https://zarm.design/#/design/download">资源</a></li>
-          <li><a href="https://github.com/ZhonganTechENG/zarm-vue" target="_blank" rel="noopener noreferrer">Github</a></li>
+          <li><a href="https://github.com/ZhonganTechENG/zarm-vue-next" target="_blank" rel="noopener noreferrer">Github</a></li>
           <li>
             <ThemeSelect />
           </li>
