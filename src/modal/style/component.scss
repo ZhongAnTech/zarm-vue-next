@@ -1,0 +1,106 @@
+@import '../../mask/style/component.scss';
+
+@include b(modal) {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-overflow-scrolling: touch;
+  user-select: none;
+  overflow: auto;
+  z-index: var(--zIndex-modal);
+
+  @include m(radius) {
+    @include e(dialog) {
+      border-radius: var(--radius-md);
+    }
+  }
+
+  @include e(wrapper) {
+    width: 100%;
+    margin: auto 0;
+  }
+
+  @include e(dialog) {
+    position: relative;
+    margin: r(60) auto;
+    background: var(--modal-background);
+    box-shadow: 0 r(7) r(21) rgba(0, 0, 0, .2);
+    overflow: hidden;
+    z-index: calc(var(--zIndex-modal) + 1);
+  }
+
+  @include e(header) {
+    position: relative;
+    padding: r(15) r(15) 0 r(15);
+    text-align: center;
+
+    &-title {
+      font-size: var(--modal-title-fontsize);
+      line-height: 1;
+      color: var(--modal-title-color);
+    }
+
+    &-close {
+      position: absolute;
+      top: 0;
+      right: r(15);
+      font-size: var(--modal-close-fontsize);
+      line-height: r(50);
+      color: var(--modal-close-color);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--modal-close-color-hover);
+      }
+    }
+  }
+
+  @include e(body) {
+    font-size: var(--modal-body-fontsize);
+    color: var(--modal-body-color);
+    padding: r(15);
+    overflow: auto;
+    user-select: auto;
+  }
+
+  @include e(footer) {
+    display: flex;
+    width: 100%;
+
+    a {
+      flex: 1;
+      height: var(--modal-footer-link-height);
+      line-height: var(--modal-footer-link-height);
+      font-size: var(--modal-footer-link-fontsize);
+      border-width: 0;
+
+      /* 1px line */
+      position: relative;
+      @include onepx(top);
+
+      &:active {
+        background: var(--modal-footer-link-bg) !important;
+      }
+
+      &:not(:first-of-type) {
+        @include onepx(left top);
+      }
+    }
+
+    @include m(block) {
+      display: block;
+
+      a {
+        &:not(:first-of-type) {
+          @include onepx(top);
+        }
+      }
+    }
+  }
+}
+

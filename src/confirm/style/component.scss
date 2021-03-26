@@ -1,0 +1,14 @@
+@import '../../button/style/component.scss';
+@import '../../modal/style/component.scss';
+
+@include b(confirm) {
+  text-align: center;
+
+  @include m(confirm) {
+    background: var(--modal-background) !important;
+  }
+
+  @include m(cancel) {
+    background: var(--modal-background) !important;
+  }
+}

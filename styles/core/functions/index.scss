@@ -1,0 +1,34 @@
+@function r($px) {
+  @return $px * 1px;
+}
+
+// 方便后期切换css变量的方案
+// @function var($var) {
+//   @return $var;
+// }
+
+/*
+$ratio: 750/640;
+@function r($px) {
+  @if $px != 0 {
+    @return $px / $ratio / $base-fontSize * 1rem;
+  }
+  @else {
+    @return 0;
+  }
+}
+*/
+
+/*
+  阿里flexible方案，详见 https://github.com/amfe/lib-flexible
+*/
+/*
+@function r($px) {
+  @if $px != 0 {
+    @return $px * 2 / 75 * 1rem;
+  }
+  @else {
+    @return 0;
+  }
+}
+*/

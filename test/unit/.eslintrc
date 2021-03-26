@@ -1,0 +1,10 @@
+{
+  "env": {
+    "jest": true
+  },
+  "globals": { 
+  },
+  "rules": {
+    "no-unused-expressions": "off"
+  }
+}

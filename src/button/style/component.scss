@@ -1,0 +1,91 @@
+@import './mixins.scss';
+
+@include b(button) {
+  display: inline-block;
+  padding: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  cursor: pointer;
+  outline: 0 none;
+  -webkit-appearance: none;
+  user-select: none;
+  transition: background-color 200ms ease-out, border-color 200ms ease-out;
+  @include button-size(var(--height-md), var(--padding-md), var(--fontSize-md), var(--radius-md), r(22), r(5));
+  @include button-theme(var(--button-default-color), var(--button-default-bg), var(--button-default-border));
+  @include button-bordered(var(--button-default-color), var(--button-default-bg), var(--button-default-border));
+
+  &,
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: none;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: .65;
+    box-shadow: none;
+  }
+
+  /* disabled Button */
+  @include m(disabled) {
+    cursor: not-allowed;
+    opacity: .65;
+    box-shadow: none;
+  }
+
+  /* block Button */
+  @include m(block) {
+    width: 100%;
+    display: block;
+  }
+
+  @include e(content) {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Button sizes */
+  @include m(xl) {
+    @include button-size(var(--height-xl), var(--padding-xl), var(--fontSize-xl), var(--radius-xl), r(26), r(8));
+  }
+
+  @include m(lg) {
+    @include button-size(var(--height-lg), var(--padding-lg), var(--fontSize-lg), var(--radius-lg), r(24), r(6));
+  }
+
+  @include m(sm) {
+    @include button-size(var(--height-sm), var(--padding-sm), var(--fontSize-sm), var(--radius-sm), r(20), r(5));
+  }
+
+  @include m(xs) {
+    @include button-size(var(--height-xs), var(--padding-xs), var(--fontSize-xs), var(--radius-xs), r(18), r(5));
+  }
+
+  @include m(default) {
+    @include m(ghost) {
+      color: var(--button-default-color);
+    }
+  }
+
+  /* Button themes */
+  @include m(primary) {
+    @include button-theme(var(--button-primary-color), var(--button-primary-bg), var(--button-primary-border));
+    @include button-bordered(var(--button-primary-color), var(--button-primary-activebg), var(--button-primary-border));
+  }
+
+  @include m(warning) {
+    @include button-theme(var(--button-warning-color), var(--button-warning-bg), var(--button-warning-border));
+    @include button-bordered(var(--button-warning-color), var(--button-warning-activebg), var(--button-warning-border));
+  }
+
+  @include m(danger) {
+    @include button-theme(var(--button-error-color), var(--button-error-bg), var(--button-error-border));
+    @include button-bordered(var(--button-error-color), var(--button-error-activebg), var(--button-error-border));
+  }
+}

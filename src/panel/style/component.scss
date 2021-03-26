@@ -1,0 +1,31 @@
+@include b(panel) {
+  @include e(header) {
+    display: flex;
+    padding: r(25) r(15) r(7) r(15);
+    font-size: var(--panel-header-fontsize);
+    color: var(--color-text-caption);
+  }
+
+  @include e(footer) {
+    display: flex;
+    padding: r(7) r(15);
+    margin-bottom: r(10);
+    font-size: var(--panel-footer-fontsize);
+    color: var(--color-text-caption);
+  }
+
+  @include e(body) {
+    position: relative;
+    background: var(--panel-body-background);
+    @include onepx(top bottom);
+  }
+
+  @include e(title) {
+    flex: 1;
+
+    .za-icon {
+      margin-right: r(5);
+    }
+  }
+}
+

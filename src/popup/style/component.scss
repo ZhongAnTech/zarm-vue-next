@@ -1,0 +1,78 @@
+@include b(popup) {
+  position: relative;
+
+  @include e(wrapper) {
+    position: fixed;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    z-index: var(--zIndex-popup);
+
+    &-bottom {
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      transform: translate(0, 100%);
+    }
+
+    &-top {
+      left: 0;
+      top: 0;
+      width: 100%;
+      transform: translate(0, -100%);
+    }
+
+    &-left {
+      left: 0;
+      top: 0;
+      height: 100%;
+      transform: translate(-100%, 0);
+    }
+
+    &-right {
+      right: 0;
+      top: 0;
+      height: 100%;
+      transform: translate(100%, 0);
+    }
+
+    &-center {
+      display: none;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+  }
+
+  @include m(opened) {
+    @include e(wrapper) {
+      &-bottom {
+        transform: translate(0, 0);
+        transition-property: transform;
+      }
+
+      &-top {
+        transform: translate(0, 0);
+        transition-property: transform;
+      }
+
+      &-left {
+        transform: translate(0, 0);
+        transition-property: transform;
+      }
+
+      &-right {
+        transform: translate(0, 0);
+        transition-property: transform;
+      }
+
+      &-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: translate(0, 0);
+        transition-property: transform;
+      }
+    }
+  }
+}

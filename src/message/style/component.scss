@@ -1,0 +1,68 @@
+@import '../../icon/style/component.scss';
+
+@mixin message-theme($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+}
+
+@include b(message) {
+  display: flex;
+  position: relative;
+  min-height: var(--message-min-height-md);
+  padding: var(--message-padding-v-md) var(--message-padding-h-md);
+  font-size: var(--message-font-size-md);
+  @include message-theme(var(--button-default-border), var(--button-default-activebg), var(--button-default-border));
+
+  @include e(icon) {
+    margin-right: r(5);
+    margin-top: r(1);
+  }
+
+  @include e(header,footer) {
+    line-height: 1;
+  }
+
+  @include e(body) {
+    flex: 1;
+    display: flex;
+    align-items: center;
+  }
+
+  @include e(footer) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: right;
+    padding-left: r(10);
+  }
+
+  @include m(primary) {
+    @include message-theme(var(--button-primary-border), var(--button-primary-activebg), var(--button-primary-border));
+  }
+
+  @include m(success) {
+    @include message-theme(var(--button-success-border), var(--button-success-activebg), var(--button-success-border));
+  }
+
+  @include m(warning) {
+    @include message-theme(var(--button-warning-border), var(--button-warning-activebg), var(--button-warning-border));
+  }
+
+  @include m(error) {
+    @include message-theme(var(--button-error-border), var(--button-error-activebg), var(--button-error-border));
+  }
+
+  @include m(lg) {
+    min-height: var(--message-min-height-lg);
+    padding: var(--message-padding-v-lg) var(--message-padding-h-lg);
+
+    @include e(icon) {
+      margin-right: r(10);
+      margin-top: r(4);
+    }
+
+    @include e(body) {
+      font-size: var(--message-font-size-lg);
+    }
+  }
+}

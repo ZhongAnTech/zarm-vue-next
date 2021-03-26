@@ -1,0 +1,67 @@
+@import '../../button/style/mixins.scss';
+
+@include b(swipe-action) {
+  position: relative;
+
+  @include e(content) {
+    position: relative;
+  }
+
+  @include e(actions) {
+    &-left,
+    &-right {
+      display: flex;
+      position: absolute;
+      height: 100%;
+      top: 0;
+    }
+
+    &-left {
+      left: 0;
+    }
+
+    &-right {
+      right: 0;
+    }
+  }
+
+  @include e(button) {
+    display: flex;
+    width: var(--swipeaction-item-width);
+    justify-content: center;
+    align-items: center;
+    font-size: var(--swipeaction-item-fontSize);
+
+    @include m(default) {
+      @include button-theme(var(--button-default-color), var(--button-default-bg), var(--button-default-border));
+      @include button-bordered(var(--button-default-border), var(--button-default-bg), var(--button-default-border));
+    }
+
+    /* Button themes */
+    @include m(primary) {
+      @include button-theme(var(--button-primary-color), var(--button-primary-bg), var(--button-primary-border));
+      @include button-bordered(var(--button-primary-border), var(--button-primary-bg), var(--button-primary-border));
+    }
+
+    @include m(info) {
+      @include button-theme(var(--button-info-color), var(--button-info-bg), var(--button-info-border));
+      @include button-bordered(var(--button-info-border), var(--button-info-bg), var(--button-info-border));
+    }
+
+    @include m(success) {
+      @include button-theme(var(--button-success-color), var(--button-success-bg), var(--button-success-border));
+      @include button-bordered(var(--button-success-border), var(--button-success-bg), var(--button-success-border));
+    }
+
+    @include m(warning) {
+      @include button-theme(var(--button-warning-color), var(--button-warning-bg), var(--button-warning-border));
+      @include button-bordered(var(--button-warning-border), var(--button-warning-bg), var(--button-warning-border));
+    }
+
+    @include m(error) {
+      @include button-theme(var(--button-error-color), var(--button-error-bg), var(--button-error-border));
+      @include button-bordered(var(--button-error-border), var(--button-error-bg), var(--button-error-border));
+    }
+  }
+}
+

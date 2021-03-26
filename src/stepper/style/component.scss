@@ -1,0 +1,112 @@
+@import '../../icon/style/component.scss';
+
+@mixin stepper-theme($color) {
+  @include e(sub, plus) {
+    border: 1px solid $color;
+  }
+
+  @include e(body) {
+    border: 1px solid $color;
+  }
+}
+
+@include b(stepper) {
+  display: flex;
+  user-select: none;
+  @include stepper-theme(var(--border-color));
+
+  @include m(disabled) {
+    @include e(sub, plus, body) {
+      opacity: var(--disabled-opacity);
+      cursor: not-allowed;
+    }
+  }
+
+  @include m(radius) {
+    @include e(sub, plus) {
+      border-radius: var(--radius-md);
+    }
+
+    @include e(body) {
+      border-radius: r(4);
+    }
+  }
+
+  @include m(circle) {
+    @include e(sub, plus) {
+      border-radius: 50%;
+    }
+
+    @include e(body) {
+      border-radius: r(400);
+    }
+  }
+
+  @include m(plump) {
+    @include e(sub, plus) {
+      border-radius: 50%;
+    }
+
+    @include e(body) {
+      border-radius: r(4);
+    }
+  }
+
+  @include e(sub, plus) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: var(--stepper-height-md);
+    height: var(--stepper-height-md);
+    font-weight: bold;
+    cursor: pointer;
+
+    &-disabled {
+      opacity: var(--disabled-opacity);
+      cursor: not-allowed;
+    }
+
+    @include b(icon) {
+      font-size: var(--stepper-fontsize-md);
+    }
+  }
+
+  @include e(body) {
+    position: relative;
+    width: r(50);
+    margin: 0 r(4);
+    padding: 0;
+    text-align: center;
+    height: var(--stepper-height-md);
+    border-radius: 0;
+    color: var(--color-text);
+    font-size: r(14);
+    outline: 0;
+    -webkit-appearance: none;
+    border: 1px solid var(--border-color);
+    caret-color: #12c287;
+    background: var(--stepper-background);
+  }
+
+  @include m(sm) {
+    @include e(sub, plus) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      width: var(--stepper-height-sm);
+      height: var(--stepper-height-sm);
+      font-weight: bold;
+      cursor: pointer;
+
+      @include b(icon) {
+        font-size: var(--stepper-fontsize-sm);
+      }
+    }
+
+    @include e(body) {
+      height: var(--stepper-height-sm);
+    }
+  }
+}

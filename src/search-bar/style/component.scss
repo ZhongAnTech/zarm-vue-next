@@ -1,0 +1,108 @@
+@import '../../input/style/component.scss';
+@import '../../icon/style/component.scss';
+
+@include b(search-bar) {
+  background: var(--background-body);
+
+  @include e(input) {
+    padding: var(--searchbar-input-padding-v) 0;
+  }
+
+  input[type="search"]::-webkit-search-cancel-button {
+    display: none;
+  }
+
+  input[type="search"] {
+    -webkit-appearance: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    text-align: left;
+    color: var(--color-text);
+    font-size: var(--searchbar-fontsize);
+    line-height: var(--searchbar-input-line-height);
+    background-color: transparent;
+    border: 0;
+
+    &::placeholder {
+      color: transparent;
+    }
+  }
+
+  @include e(form) {
+    height: var(--searchbar-form-height);
+    margin: 0 r(15);
+    display: flex;
+    align-items: center;
+    // background: inherit;
+    overflow: hidden;
+
+    @include m(focus) {
+      input[type="search"] {
+        opacity: 1;
+        padding: 0 r(28) 0 r(26);
+      }
+    }
+  }
+
+  @include e(content) {
+    position: relative;
+    flex: 1;
+    width: 100%;
+    height: var(--searchbar-content-height);
+    padding: r(4);
+    background: var(--searchbar-content-bg);
+    overflow: hidden;
+
+    @include m(radius) {
+      border-radius: var(--radius-md);
+    }
+
+    @include m(round) {
+      border-radius: var(--radius-round);
+    }
+
+    @include m(circle) {
+      border-radius: var(--radius-circle);
+    }
+  }
+
+  @include e(mock) {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: var(--searchbar-input-line-height);
+    line-height: var(--searchbar-input-line-height);
+    font-size: var(--searchbar-fontsize);
+    color: var(--searchbar-mock-color);
+
+    &-container {
+      display: inline-block;
+      height: 100%;
+      transform: translate3d(r(10), 0, 0);
+    }
+
+    &-placeholder {
+      vertical-align: middle;
+    }
+
+    @include b(icon) {
+      font-size: var(--searchbar-mock-icon-fontsize);
+      vertical-align: middle;
+      margin-right: r(3);
+    }
+  }
+
+  @include e(cancel) {
+    font-size: var(--searchbar-cancel-fontsize);
+    color: var(--searchbar-cancel-color);
+    margin-left: r(15);
+
+    &-show {
+      transition: all .2s;
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+@include b(wheel) {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: calc(var(--wheel-item-rows) * var(--wheel-item-height));
+  width: 100%;
+
+  @include e(content) {
+    margin-top: 68px;
+  }
+
+  @include e(item) {
+    text-align: center;
+    font-size: var(--wheel-item-fontsize);
+    line-height: var(--wheel-item-height);
+    height: var(--wheel-item-height);
+    color: var(--wheel-item-text-color);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+}

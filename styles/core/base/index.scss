@@ -1,0 +1,25 @@
+@import "normalize";
+
+// 图标字体
+$icon-url: '//at.alicdn.com/t/font_126288_147h8m0m5se5ewmi';
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+*[contenteditable] {
+  -webkit-user-select: auto !important;
+}
+
+*:focus {
+  outline: none;
+}
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none;
+}

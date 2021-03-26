@@ -1,0 +1,86 @@
+@mixin switch-theme($color) {
+  @include e(input) {
+    &:checked {
+      border-color: $color;
+      background-color: $color;
+    }
+  }
+}
+
+@include b(switch) {
+  @include switch-theme(var(--theme-default));
+
+  @include e(input) {
+    position: relative;
+    width: var(--switch-width);
+    height: var(--switch-height);
+    border: r(1) solid var(--switch-border-color);
+    border-radius: r(15.5);
+    background-color: var(--switch-background);
+    vertical-align: middle;
+    outline: 0;
+    transition: background-color 0.1s, border 0.1s;
+    -webkit-appearance: none;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: r(30);
+      border-radius: r(14.5);
+      background-color: var(--switch-background);
+    }
+
+    &:before {
+      width: r(49);
+      transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1), -webkit-transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+    }
+
+    &:after {
+      width: r(30);
+      box-shadow: r(-1) r(2) r(2) r(0) var(--switch-box-shadow-start), r(0) r(2) r(11.5) r(0) var(--switch-box-shadow-center), r(0) r(0) r(2) r(0) var(--switch-box-shadow-end);
+      transition: transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35), -webkit-transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+      background: var(--switch-background-handle);
+    }
+
+    &:checked {
+      &:before {
+        transform: scale(0);
+      }
+
+      &:after {
+        transform: translateX(r(21));
+        box-shadow: 0 r(1) r(1) 0 var(--switch-box-checked-shadow);
+        background: var(--switch-background-handle);
+      }
+    }
+  }
+
+  @include m(disabled) {
+    cursor: not-allowed;
+    opacity: var(--disabled-opacity);
+  }
+
+  @include m(primary) {
+    @include switch-theme(var(--theme-primary));
+  }
+
+  @include m(info) {
+    @include switch-theme(var(--theme-info));
+  }
+
+  @include m(success) {
+    @include switch-theme(var(--theme-success));
+  }
+
+  @include m(warning) {
+    @include switch-theme(var(--theme-warning));
+  }
+
+  @include m(error) {
+    @include switch-theme(var(--theme-error));
+  }
+}
+
