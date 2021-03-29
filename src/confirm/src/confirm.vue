@@ -107,6 +107,7 @@ export default {
     onClose(event) {
       this.$emit('update:visible', false);
       this.$emit('close', event);
+      this.currentVisible = false;
     },
     handleCancel() {
       const { cancel } = this;

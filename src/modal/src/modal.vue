@@ -30,13 +30,9 @@
 </template>
 
 <script>
-/**
- * Should use za-popup instead of reapply mask.
- * but as css is depend on zarm-react version,
- * use popup may have potential problem
- */
 import zaMask from '../../mask';
 import zaIcon from '../../icon';
+import scrollable from '../../mixins/scrollable';
 import getContainer from '../../mixins/get-container';
 
 export default {
@@ -45,7 +41,7 @@ export default {
     zaMask,
     zaIcon,
   },
-  mixins: [getContainer],
+  mixins: [getContainer, scrollable],
   props: {
     prefixCls: {
       type: String,
@@ -118,14 +114,15 @@ export default {
       if (this.timer) {
         clearTimeout(this.timer);
       }
+      this.currentVisible = value;
+    },
+    currentVisible(value) {
       if (value) {
         this.enter();
+        this.onAfterOpen();
       } else {
-        this.animationState = 'leave';
-        this.timer = setTimeout(() => {
-          this.currentVisible = value;
-          this.maskVisible = false;
-        }, this.animationDuration);
+        this.leave();
+        this.onAfterClose();
       }
     },
   },
@@ -167,6 +164,7 @@ export default {
   mounted() {
     if (this.currentVisible) {
       this.enter();
+      this.onAfterOpen();
     }
   },
   beforeUnmount() {

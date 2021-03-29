@@ -1,5 +1,6 @@
 <script>
 import zaMask from '../../mask';
+import scrollable from '../../mixins/scrollable';
 import getContainer from '../../mixins/get-container';
 
 export default {
@@ -7,7 +8,7 @@ export default {
   components: {
     zaMask,
   },
-  mixins: [getContainer],
+  mixins: [getContainer, scrollable],
   props: {
     visible: {
       type: Boolean,
@@ -81,8 +82,10 @@ export default {
       this.removeTimer();
       if (value) {
         this.enter();
+        this.onAfterOpen();
       } else {
         this.leave();
+        this.onAfterClose();
       }
     },
   },

@@ -12,12 +12,15 @@
 
 <script>
 import zaMask from '../../mask';
+import scrollable from '../../mixins/scrollable';
+import getContainer from '../../mixins/get-container';
 
 export default {
   name: 'zaToast',
   components: {
     zaMask,
   },
+  mixins: [getContainer, scrollable],
   props: {
     prefixCls: {
       type: String,
@@ -64,8 +67,10 @@ export default {
     currentVisible(value) {
       if (value) {
         this.enter();
+        this.onAfterOpen();
       } else {
         this.leave();
+        this.onAfterClose();
       }
     },
   },
@@ -77,6 +82,7 @@ export default {
   mounted() {
     if (this.currentVisible) {
       this.enter();
+      this.onAfterOpen();
     }
   },
   beforeUnmount() {

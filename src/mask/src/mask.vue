@@ -9,11 +9,8 @@
 </template>
 
 <script>
-import scrollable from '../../mixins/scrollable';
-
 export default {
   name: 'zaMask',
-  mixins: [scrollable],
   props: {
     lockScroller: {
       type: Boolean,
@@ -33,15 +30,6 @@ export default {
         return ['transparent', 'normal'].indexOf(v) >= 0;
       },
       default: 'normal',
-    },
-  },
-  watch: {
-    visible(val) {
-      if (val) {
-        this.onAfterOpen();
-      } else {
-        this.onAfterClose();
-      }
     },
   },
   methods: {
