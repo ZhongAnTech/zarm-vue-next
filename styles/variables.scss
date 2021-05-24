@@ -22,7 +22,6 @@ $--theme-warning-dark: darken($--theme-warning, 10%);
 $--theme-error-dark: darken($--theme-error, 10%);
 $--theme-danger-dark: darken($--theme-error, 10%);
 
-
 // 图标字体
 $icon-url: '//at.alicdn.com/t/font_126288_147h8m0m5se5ewmi';
 
@@ -163,37 +162,30 @@ $icon-url: '//at.alicdn.com/t/font_126288_147h8m0m5se5ewmi';
   --button-height-sm: 36px;
   --button-height-md: 44px;
   --button-height-lg: 52px;
-
   --button-default-color: var(--color-text);
   --button-default-bg: #fff;
   --button-default-border: var(--border-color);
   --button-default-activebg: rgba(var(--border-color), 0.5);
-
   --button-primary-color: #fff;
   --button-primary-bg: var(--theme-primary);
   --button-primary-border: var(--theme-primary);
   --button-primary-activebg: var(--theme-primary-light);
-
   --button-info-color: #fff;
   --button-info-bg: var(--theme-info);
   --button-info-border: var(--theme-info);
   --button-info-activebg: var(--theme-info-light);
-
   --button-success-color: #fff;
   --button-success-bg: var(--theme-success);
   --button-success-border: var(--theme-success);
   --button-success-activebg: var(--theme-success-light);
-
   --button-warning-color: #fff;
   --button-warning-bg: var(--theme-warning);
   --button-warning-border: var(--theme-warning);
   --button-warning-activebg: var(--theme-warning-light);
-
   --button-error-color: #fff;
   --button-error-bg: var(--theme-error);
   --button-error-border: var(--theme-error);
   --button-error-activebg: var(--theme-error-light);
-
   --button-danger-color: #fff;
   --button-danger-bg: var(--theme-danger);
   --button-danger-border: var(--theme-danger);
@@ -380,5 +372,4 @@ $icon-url: '//at.alicdn.com/t/font_126288_147h8m0m5se5ewmi';
   --tabbar-background: #fff;
   --tabbar-item-font-size: 12px;
   --tabbar-item-active-color: var(--theme-primary);
-
 }

@@ -1,4 +1,3 @@
-
 :root {
   // 基础
   --placeholder-color: #a9a9a9;
@@ -6,6 +5,7 @@
   // 背景色
   --background-body: #1b1c1e;
   --background-inner: #000;
+  --background-active: #363738;
 
   // 边框色
   --border-color: #3a3b3d;
@@ -93,5 +93,4 @@
   // Tabbar
   --tabbar-background: var(--background-body);
   --tabbar-item-active-color: var(--theme-primary);
-
 }
